@@ -24,7 +24,7 @@
 		235919A41C8EC14200CD2915 /* MTBTrailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235919A31C8EC14200CD2915 /* MTBTrailsVC.swift */; };
 		235919A61C8EC16100CD2915 /* ServicesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235919A51C8EC16100CD2915 /* ServicesVC.swift */; };
 		235919A81C8EC5FD00CD2915 /* TrailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235919A71C8EC5FD00CD2915 /* TrailsCell.swift */; };
-		23C078681C9015B600C83DC7 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C078671C9015B600C83DC7 /* Reachability.swift */; };
+		235BC7321C9175F9000AA104 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 235BC7311C9175F9000AA104 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +47,9 @@
 		235919A31C8EC14200CD2915 /* MTBTrailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTBTrailsVC.swift; sourceTree = "<group>"; };
 		235919A51C8EC16100CD2915 /* ServicesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesVC.swift; sourceTree = "<group>"; };
 		235919A71C8EC5FD00CD2915 /* TrailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrailsCell.swift; sourceTree = "<group>"; };
-		23C078671C9015B600C83DC7 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		235BC72F1C9175F8000AA104 /* Bosnia Trails-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bosnia Trails-Bridging-Header.h"; sourceTree = "<group>"; };
+		235BC7301C9175F9000AA104 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		235BC7311C9175F9000AA104 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +131,10 @@
 		235919961C8E20AE00CD2915 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				235BC7301C9175F9000AA104 /* Reachability.h */,
+				235BC7311C9175F9000AA104 /* Reachability.m */,
 				235919991C8E218C00CD2915 /* Constants.swift */,
-				23C078671C9015B600C83DC7 /* Reachability.swift */,
+				235BC72F1C9175F8000AA104 /* Bosnia Trails-Bridging-Header.h */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -161,7 +165,7 @@
 		235919761C8E1AD900CD2915 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Adis Mulabdic";
 				TargetAttributes = {
@@ -215,8 +219,8 @@
 				235919A01C8E295E00CD2915 /* WebViewVC.swift in Sources */,
 				235919A21C8E29B100CD2915 /* SlikeMapaVC.swift in Sources */,
 				2359199E1C8E28FB00CD2915 /* Servisi.swift in Sources */,
-				23C078681C9015B600C83DC7 /* Reachability.swift in Sources */,
 				235919A61C8EC16100CD2915 /* ServicesVC.swift in Sources */,
+				235BC7321C9175F9000AA104 /* Reachability.m in Sources */,
 				235919821C8E1AD900CD2915 /* AppDelegate.swift in Sources */,
 				23417EB81C8F0DC700E27CBC /* ServisInfoVC.swift in Sources */,
 				235919A41C8EC14200CD2915 /* MTBTrailsVC.swift in Sources */,
@@ -332,10 +336,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Bosnia Trails/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "test.Bosnia-Trails";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bosnia Trails/Bosnia Trails-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -343,10 +350,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Bosnia Trails/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "test.Bosnia-Trails";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bosnia Trails/Bosnia Trails-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -17,28 +17,53 @@ class WebViewVC: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if Reachability.isConnectedToNetwork() == true {
-            print("Internet connection OK")
-        } else {
-            let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: .Alert)
-            let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
-            alert.addAction(action)
-            
-            presentViewController(alert, animated: true, completion: nil)
-            
-        }
-        
         webView.delegate = self
         
-        let mainUrl = NSURL(string: url)
-        let requestObj = NSURLRequest(URL: mainUrl!)
-        webView.loadRequest(requestObj)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "checkForInternet", name: "ReachStatusChanged", object: nil)
+        self.checkForInternet()
         
     }
     
+    func checkForInternet(){
+        if reachabilityStatus == kNOTREACH {
+            
+            let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: .Alert)
+            
+            /*alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action: UIAlertAction!) in
+                self.navigationController?.popToRootViewControllerAnimated(true)
+            }))*/
+            //alert.dismissViewControllerAnimated(true, completion: nil)
+            
+            let action = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                print("OKKKKK")
+            })
+            alert.addAction(action)
+            //let action = UIAlertAction(title: "OK", style: .Default, handler: {(action:UIAlertAction!) in self.dismissViewControllerAnimated(true, completion: nil)})
+            //alert.addAction(action)
+            
+            presentViewController(alert, animated: true, completion: nil)
+            
+        } else if reachabilityStatus == kREACHWIFI {
+            
+            let mainUrl = NSURL(string: url)
+            let requestObj = NSURLRequest(URL: mainUrl!)
+            webView.loadRequest(requestObj)
+            //print("Internet connection OK")
+            
+        } else if reachabilityStatus == kREACHWLAN {
+            
+            let mainUrl = NSURL(string: url)
+            let requestObj = NSURLRequest(URL: mainUrl!)
+            webView.loadRequest(requestObj)
+            //print("Internet connection OK")
+        }
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "ReachStatusChanged", object: nil)
+    }
     func webViewDidStartLoad(webView: UIWebView) {
-        progressActivity.stopAnimating()
+        progressActivity.startAnimating()
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
